@@ -1,5 +1,6 @@
 package com.example.dllo.carhome.recommend;
 
+import com.example.dllo.carhome.R;
 import com.example.dllo.carhome.base.BaseFragment;
 
 /**
@@ -8,7 +9,7 @@ import com.example.dllo.carhome.base.BaseFragment;
 public class RecommendFragment extends BaseFragment {
     @Override
     protected int getLayout() {
-        return 0;
+        return R.layout.fragment_recommend;
     }
 
     @Override

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
 import android.widget.RadioButton;
 
 import com.example.dllo.carhome.recommend.MainActivity;
@@ -26,7 +27,7 @@ public abstract class BaseActivity extends AppCompatActivity{
     // 初始化数据, 基本上就是 拉取网络数据
     protected abstract void initData();
     // 简化findViewById 省去强转的过程
-    protected <T extends View>T bindView(int id) {
+    protected <T extends View> T bindView(int id) {
         return (T) findViewById(id);
     }
     // 点击事件
