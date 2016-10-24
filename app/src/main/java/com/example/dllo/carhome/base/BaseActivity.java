@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.RadioButton;
+
+import com.example.dllo.carhome.recommend.MainActivity;
 
 /**
  * Created by dllo on 16/10/21.
@@ -26,4 +29,12 @@ public abstract class BaseActivity extends AppCompatActivity{
     protected <T extends View>T bindView(int id) {
         return (T) findViewById(id);
     }
+    // 点击事件
+    protected void setClick(View.OnClickListener clickListener,
+                            View...views){
+        for (View view :views){
+            view.setOnClickListener(clickListener);
+        }
+    }
+
 }
