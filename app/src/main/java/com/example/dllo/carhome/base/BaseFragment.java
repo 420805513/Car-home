@@ -31,11 +31,11 @@ public abstract class BaseFragment extends Fragment {
         initData();
     }
     // 自身view
-    private <T extends View> T bindView(int id) {
+    protected <T extends View> T bindView(int id) {
         return (T) getView().findViewById(id);
     }
     // 其他view
-    private <T extends View> T bindView(View view,int id) {
+    protected <T extends View> T bindView(View view,int id) {
         return (T) view.findViewById(id);
     }
 
