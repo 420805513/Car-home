@@ -20,23 +20,23 @@ public class ForumFragment extends BaseFragment {
 
     @Override
     protected int getLayout() {
+//        return 0;
         return R.layout.fragment_forum;
     }
 
     @Override
     protected void initView() {
-//        vp = bindView(R.id.vp_forum);
-//        tb = bindView(R.id.tb_forum);
-//        arrayList = new ArrayList<>();
-//        arrayList.add(new CarefullyChosenPageFragment());
-//        arrayList.add(new ForumFragment());
-//
-//        RecommendFragmentAdapter adapter = new RecommendFragmentAdapter(getChildFragmentManager());
-//        adapter.setFragment(arrayList);
-//        vp.setAdapter(adapter);
-//        tb.setupWithViewPager(vp);
-    }
+        vp = bindView(R.id.vp_forum);
+        tb = bindView(R.id.tb_forum);
+        arrayList = new ArrayList<>();
+        arrayList.add(new CarefullyChosenPageFragment());
+        arrayList.add(new ForumPageFragment());
 
+        ForumAdapter adapter = new ForumAdapter(getChildFragmentManager());
+        adapter.setFragments(arrayList);
+        vp.setAdapter(adapter);
+        tb.setupWithViewPager(vp);
+    }
     @Override
     protected void initData() {
 
