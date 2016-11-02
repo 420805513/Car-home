@@ -1,19 +1,14 @@
-package com.example.dllo.carhome.recommend.listviewandinside;
+package com.example.dllo.carhome.recommend.recommendinside;
 
 import android.content.Context;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.dllo.carhome.R;
 import com.example.dllo.carhome.commonviewholder.CommonVH;
-import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

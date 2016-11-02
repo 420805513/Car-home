@@ -1,10 +1,8 @@
 package com.example.dllo.carhome.recommend;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +14,11 @@ import com.example.dllo.carhome.R;
 import com.example.dllo.carhome.UrlList;
 import com.example.dllo.carhome.gsonandvolley.GsonRequest;
 import com.example.dllo.carhome.gsonandvolley.VolleySingleton;
-import com.example.dllo.carhome.recommend.listviewandinside.RecommendPageListViewAdapter;
-import com.example.dllo.carhome.recommend.listviewandinside.RecommendPageListViewBean;
+import com.example.dllo.carhome.recommend.nicecreatinside.RecommendPageNiceCreatBean;
+import com.example.dllo.carhome.recommend.recommendinside.LoopAdapter;
+import com.example.dllo.carhome.recommend.recommendinside.RecommendPageListViewAdapter;
+import com.example.dllo.carhome.recommend.recommendinside.RecommendPageListViewBean;
 import com.jude.rollviewpager.RollPagerView;
-import com.jude.rollviewpager.adapter.LoopPagerAdapter;
-import com.jude.rollviewpager.hintview.ColorPointHintView;
 
 /**
  * Created by dllo on 16/10/25.
@@ -93,6 +91,21 @@ public class RecommendPageFragment extends Fragment {
 
                 break;
             case 1:
+                GsonRequest<RecommendPageNiceCreatBean> gsonRequest1 = new GsonRequest<RecommendPageNiceCreatBean>(RecommendPageNiceCreatBean.class, UrlList.URL_NICECREAT, new Response.Listener<RecommendPageNiceCreatBean>() {
+                    @Override
+                    public void onResponse(RecommendPageNiceCreatBean response) {
+                        //请求成功的方法
+
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // 请求失败的方法
+
+                    }
+
+        });
 
                 break;
             case 2:
@@ -136,10 +149,5 @@ public class RecommendPageFragment extends Fragment {
 //
 //    }
 //
-
-    private void initData() {
-
-
-    }
 
 }

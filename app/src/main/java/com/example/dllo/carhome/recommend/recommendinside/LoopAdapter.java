@@ -1,16 +1,13 @@
-package com.example.dllo.carhome.recommend;
+package com.example.dllo.carhome.recommend.recommendinside;
 
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.example.dllo.carhome.R;
 import com.example.dllo.carhome.gsonandvolley.VolleySingleton;
-import com.example.dllo.carhome.recommend.listviewandinside.RecommendPageListViewBean;
+import com.example.dllo.carhome.recommend.recommendinside.RecommendPageListViewBean;
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.adapter.LoopPagerAdapter;
-
-import java.util.ArrayList;
 
 /**
  * Created by dllo on 16/11/1.

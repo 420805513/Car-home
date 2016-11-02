@@ -1,4 +1,4 @@
-package com.example.dllo.carhome.recommend.listviewandinside;
+package com.example.dllo.carhome.recommend.recommendinside;
 
 import java.util.List;
 
