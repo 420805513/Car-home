@@ -10,36 +10,40 @@
         android:orientation="horizontal"
         >
         <TextView
-            android:id="@+id/tv_listview_title"
+            android:id="@+id/tv_listview_title_t1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="标题"
-            android:textSize="20dp"/>
+            android:textSize="15dp"
+            android:textColor="@color/colorText"/>
         <ImageView
-            android:id="@+id/iv_listview_picture"
+            android:id="@+id/iv_listview_picture_t1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_weight="1"
             android:src="@mipmap/ic_launcher"/>
 
     </LinearLayout>
-  <RelativeLayout
+  <LinearLayout
       android:layout_width="match_parent"
-      android:layout_height="wrap_content">
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
       <TextView
-          android:id="@+id/tv_listview_playcount"
-          android:layout_width="wrap_content"
+          android:id="@+id/tv_listview_replycount_t1"
+          android:layout_width="0dp"
           android:layout_height="wrap_content"
-          android:layout_alignParentLeft="true"
-          android:text="播放数"/>
+          android:layout_weight="3"
+          android:textSize="10dp"
+          android:text="评论数"/>
       <TextView
-          android:id="@+id/tv_listview_date"
-          android:layout_width="wrap_content"
+          android:id="@+id/tv_listview_date_t1"
+          android:layout_width="0dp"
           android:layout_height="wrap_content"
-          android:layout_alignParentRight="true"
+          android:layout_weight="1"
+          android:textSize="10dp"
           android:text="发布日期"/>
-  </RelativeLayout>
+  </LinearLayout>
 
 
 

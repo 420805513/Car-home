@@ -9,6 +9,7 @@ import com.example.dllo.carhome.base.BaseFragment;
 public class FoundFragment extends BaseFragment {
     @Override
     protected int getLayout() {
+
         return R.layout.fragment_found;
     }
 
