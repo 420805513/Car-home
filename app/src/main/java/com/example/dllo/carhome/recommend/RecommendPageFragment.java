@@ -3,6 +3,7 @@ package com.example.dllo.carhome.recommend;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +15,15 @@ import com.example.dllo.carhome.R;
 import com.example.dllo.carhome.UrlList;
 import com.example.dllo.carhome.gsonandvolley.GsonRequest;
 import com.example.dllo.carhome.gsonandvolley.VolleySingleton;
-import com.example.dllo.carhome.recommend.nicecreatinside.RecommendPageNiceCreatBean;
+import com.example.dllo.carhome.recommend.newsinside.RecommendPageNewsAdapter;
+import com.example.dllo.carhome.recommend.newsinside.RecommendPageNewsBean;
+import com.example.dllo.carhome.recommend.quicknewsinside.RecommendPageQuickNewsAdapter;
+import com.example.dllo.carhome.recommend.quicknewsinside.RecommendPageQuickNewsBean;
 import com.example.dllo.carhome.recommend.recommendinside.LoopAdapter;
 import com.example.dllo.carhome.recommend.recommendinside.RecommendPageListViewAdapter;
 import com.example.dllo.carhome.recommend.recommendinside.RecommendPageListViewBean;
+import com.example.dllo.carhome.recommend.speakinside.RecommendPageSpeakAdapter;
+import com.example.dllo.carhome.recommend.speakinside.RecommendPageSpeakBean;
 import com.jude.rollviewpager.RollPagerView;
 
 /**
@@ -57,14 +63,13 @@ public class RecommendPageFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         // 拿值
         Bundle arguments = getArguments();
-        int pos = arguments.getInt(KEY);
+        final int pos = arguments.getInt(KEY);
         switch (pos) {
             case 0:
                 GsonRequest<RecommendPageListViewBean> gsonRequest = new GsonRequest<RecommendPageListViewBean>(RecommendPageListViewBean.class, UrlList.URL_RECOMMEND, new Response.Listener<RecommendPageListViewBean>() {
                     @Override
                     public void onResponse(RecommendPageListViewBean response) {
                         // 请求成功的方法
-//                        Log.d("RecommendPageFragment", response.getResult().getFocusimg().get(0).getImgurl());
                         RecommendPageListViewAdapter adapter = new RecommendPageListViewAdapter(getContext());
                         adapter.setRecommendPageListViewBean(response);
 
@@ -91,45 +96,209 @@ public class RecommendPageFragment extends Fragment {
 
                 break;
             case 1:
-                GsonRequest<RecommendPageNiceCreatBean> gsonRequest1 = new GsonRequest<RecommendPageNiceCreatBean>(RecommendPageNiceCreatBean.class, UrlList.URL_NICECREAT, new Response.Listener<RecommendPageNiceCreatBean>() {
-                    @Override
-                    public void onResponse(RecommendPageNiceCreatBean response) {
-                        //请求成功的方法
+//                GsonRequest<RecommendPageNiceCreatBean> gsonRequest1 = new GsonRequest<RecommendPageNiceCreatBean>(RecommendPageNiceCreatBean.class, UrlList.URL_NICECREAT, new Response.Listener<RecommendPageNiceCreatBean>() {
+//                    @Override
+//                    public void onResponse(RecommendPageNiceCreatBean response) {
+//                        //请求成功的方法
+//
+//
+//                    }
+//                }, new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        // 请求失败的方法
+//
+//                    }
+//
+//        });
 
+                break;
+            case 2:
+                // 说客
+                GsonRequest<RecommendPageSpeakBean> gsonRequest2 = new GsonRequest<RecommendPageSpeakBean>(RecommendPageSpeakBean.class, UrlList.URL_SPEAK, new Response.Listener<RecommendPageSpeakBean>() {
+                    @Override
+                    public void onResponse(RecommendPageSpeakBean response) {
+                        Log.d("RecommendPageFragment", response.getResult().getList().get(0).getSmallpic());
+                        RecommendPageSpeakAdapter adapter = new RecommendPageSpeakAdapter(getContext());
+                        adapter.setRecommendPageSpeakBean(response);
+                        lv.setAdapter(adapter);
 
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // 请求失败的方法
 
                     }
 
         });
-
-                break;
-            case 2:
+                VolleySingleton.getInstance().addRequest(gsonRequest2);
 
                 break;
             case 3:
+                // 视频
                 break;
             case 4:
+                // 快报
+                GsonRequest<RecommendPageQuickNewsBean> gsonRequest4 = new GsonRequest<RecommendPageQuickNewsBean>(RecommendPageQuickNewsBean.class, UrlList.URL_QUICKNEWS, new Response.Listener<RecommendPageQuickNewsBean>() {
+                    @Override
+                    public void onResponse(RecommendPageQuickNewsBean response) {
+                        RecommendPageQuickNewsAdapter adapter =  new RecommendPageQuickNewsAdapter(getContext());
+                        adapter.setRecommendPageQuickNewsBean(response);
+                        lv.setAdapter(adapter);
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+        });
+                VolleySingleton.getInstance().addRequest(gsonRequest4);
                 break;
             case 5:
+                // 行情
+                GsonRequest<RecommendPageListViewBean> gsonRequest5 = new GsonRequest<RecommendPageListViewBean>(RecommendPageListViewBean.class, UrlList.URL_CONDITION, new Response.Listener<RecommendPageListViewBean>() {
+                    @Override
+                    public void onResponse(RecommendPageListViewBean response) {
+                        RecommendPageListViewAdapter adapter = new RecommendPageListViewAdapter(getContext());
+                        adapter.setRecommendPageListViewBean(response);
+                        lv.setAdapter(adapter);
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+
+        });
+                VolleySingleton.getInstance().addRequest(gsonRequest5);
+
                 break;
             case 6:
+                // 新闻
+                GsonRequest<RecommendPageNewsBean> gsonRequest6 = new GsonRequest<RecommendPageNewsBean>(RecommendPageNewsBean.class, UrlList.URL_NEWS, new Response.Listener<RecommendPageNewsBean>() {
+                    @Override
+                    public void onResponse(RecommendPageNewsBean response) {
+                        RecommendPageNewsAdapter adapter = new RecommendPageNewsAdapter(getContext());
+                        adapter.setRecommendPageNewsBean(response);
+                        lv.setAdapter(adapter);
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+        });
+                VolleySingleton.getInstance().addRequest(gsonRequest6);
                 break;
             case 7:
+                GsonRequest<RecommendPageListViewBean> gsonRequest7 = new GsonRequest<RecommendPageListViewBean>(RecommendPageListViewBean.class, UrlList.URL_EVALUATION, new Response.Listener<RecommendPageListViewBean>() {
+                    @Override
+                    public void onResponse(RecommendPageListViewBean response) {
+                        RecommendPageListViewAdapter adapter = new RecommendPageListViewAdapter(getContext());
+                        adapter.setRecommendPageListViewBean(response);
+                        lv.setAdapter(adapter);
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+
+                });
+                VolleySingleton.getInstance().addRequest(gsonRequest7);
+
                 break;
             case 8:
+                GsonRequest<RecommendPageListViewBean> gsonRequest8 = new GsonRequest<RecommendPageListViewBean>(RecommendPageListViewBean.class, UrlList.URL_SHOPPINGGUIDE, new Response.Listener<RecommendPageListViewBean>() {
+                    @Override
+                    public void onResponse(RecommendPageListViewBean response) {
+                        RecommendPageListViewAdapter adapter = new RecommendPageListViewAdapter(getContext());
+                        adapter.setRecommendPageListViewBean(response);
+                        lv.setAdapter(adapter);
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+
+                });
+                VolleySingleton.getInstance().addRequest(gsonRequest8);
+
                 break;
             case 9:
+                GsonRequest<RecommendPageListViewBean> gsonRequest9 = new GsonRequest<RecommendPageListViewBean>(RecommendPageListViewBean.class, UrlList.URL_USECAR, new Response.Listener<RecommendPageListViewBean>() {
+                    @Override
+                    public void onResponse(RecommendPageListViewBean response) {
+                        RecommendPageListViewAdapter adapter = new RecommendPageListViewAdapter(getContext());
+                        adapter.setRecommendPageListViewBean(response);
+                        lv.setAdapter(adapter);
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+
+                });
+                VolleySingleton.getInstance().addRequest(gsonRequest9);
+
                 break;
             case 10:
+                GsonRequest<RecommendPageListViewBean> gsonRequest10 = new GsonRequest<RecommendPageListViewBean>(RecommendPageListViewBean.class, UrlList.URL_TECHNOLOGY, new Response.Listener<RecommendPageListViewBean>() {
+                    @Override
+                    public void onResponse(RecommendPageListViewBean response) {
+                        RecommendPageListViewAdapter adapter = new RecommendPageListViewAdapter(getContext());
+                        adapter.setRecommendPageListViewBean(response);
+                        lv.setAdapter(adapter);
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+
+                });
+                VolleySingleton.getInstance().addRequest(gsonRequest10);
+
                 break;
             case 11:
+                GsonRequest<RecommendPageListViewBean> gsonRequest11 = new GsonRequest<RecommendPageListViewBean>(RecommendPageListViewBean.class, UrlList.URL_CULTURE, new Response.Listener<RecommendPageListViewBean>() {
+                    @Override
+                    public void onResponse(RecommendPageListViewBean response) {
+                        RecommendPageListViewAdapter adapter = new RecommendPageListViewAdapter(getContext());
+                        adapter.setRecommendPageListViewBean(response);
+                        lv.setAdapter(adapter);
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+
+                });
+                VolleySingleton.getInstance().addRequest(gsonRequest11);
+
                 break;
             case 12:
+                GsonRequest<RecommendPageListViewBean> gsonRequest12 = new GsonRequest<RecommendPageListViewBean>(RecommendPageListViewBean.class, UrlList.URL_REFIT, new Response.Listener<RecommendPageListViewBean>() {
+                    @Override
+                    public void onResponse(RecommendPageListViewBean response) {
+                        RecommendPageListViewAdapter adapter = new RecommendPageListViewAdapter(getContext());
+                        adapter.setRecommendPageListViewBean(response);
+                        lv.setAdapter(adapter);
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+
+                });
+                VolleySingleton.getInstance().addRequest(gsonRequest12);
+
                 break;
 
         }

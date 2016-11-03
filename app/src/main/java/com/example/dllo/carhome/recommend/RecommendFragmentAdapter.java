@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class RecommendFragmentAdapter extends FragmentPagerAdapter {
     SparseArray<Fragment> fragment;
-    String [] titles = {"推荐","优创+","说客","视频","快报","行情","新闻","评测","导购","用车","技术"};
+    String [] titles = {"推荐","优创+","说客","视频","快报","行情","新闻","评测","导购","用车","技术","文化","改装"};
     public RecommendFragmentAdapter(FragmentManager fm) {
         super(fm);
         fragment = new SparseArray<>();

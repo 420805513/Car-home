@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginRight="5dp"
-    android:layout_marginLeft="5dp"
-    android:layout_marginTop="3dp"
-    android:layout_marginBottom="3dp">
+    android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
         <TextView
-            android:id="@+id/tv_listview_title_t3"
+            android:id="@+id/tv_recommend_news_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -20,7 +16,7 @@
             android:textSize="15dp"
             android:textColor="@color/colorText"/>
         <ImageView
-            android:id="@+id/iv_listview_picture_t3"
+            android:id="@+id/iv_recommend_news_picture"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_weight="1"
@@ -32,19 +28,20 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/tv_listview_replycount_t3"
+            android:id="@+id/tv_recommend_news_replycount"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
             android:textSize="10dp"
-            android:text="播放数"/>
+            android:text="评论数"/>
         <TextView
-            android:id="@+id/tv_listview_date_t3"
+            android:id="@+id/tv_recommend_news_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="10dp"
             android:text="发布日期"/>
     </LinearLayout>
+
 
 </LinearLayout>

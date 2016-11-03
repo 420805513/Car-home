@@ -19,7 +19,7 @@ import java.util.List;
 public class RecommendPageListViewAdapter extends BaseAdapter {
     Context context;
     private RecommendPageListViewBean recommendPageListViewBean;
-
+    final int TYPE_0 = 0;
     final int TYPE_1 = 1;
     final int TYPE_2 = 2;
     final int TYPE_3 = 3;
@@ -52,7 +52,10 @@ public class RecommendPageListViewAdapter extends BaseAdapter {
 
     @Override
     public int getItemViewType(int position) {
-        if (recommendPageListViewBean.getResult().getNewslist().get(position).getMediatype() == 1) {
+        if (recommendPageListViewBean.getResult().getNewslist().get(position).getMediatype() == 1){
+            return TYPE_0;
+        }
+           else if (recommendPageListViewBean.getResult().getNewslist().get(position).getMediatype() == 1) {
             return TYPE_1;
         } else if(recommendPageListViewBean.getResult().getNewslist().get(position).getMediatype() == 2)
          {
@@ -76,6 +79,12 @@ public class RecommendPageListViewAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         switch (getItemViewType(position)) {
+            case TYPE_0:
+                viewHolder = CommonVH.getViewHolder(convertView,parent,R.layout.fragment_recommend_listview_type_zero);
+                viewHolder.setText(R.id.tv_listview_title_t0,recommendPageListViewBean.getResult().getNewslist().get(position).getTitle())
+                        .setText(R.id.tv_listview_date_t0,recommendPageListViewBean.getResult().getNewslist().get(position).getTime())
+                        .setImage(R.id.iv_listview_picture_t0,recommendPageListViewBean.getResult().getNewslist().get(position).getSmallpic());
+                break;
             case TYPE_1:
                 viewHolder = CommonVH.getViewHolder(convertView, parent, R.layout.fragment_recommend_listview_type_one);
                 viewHolder.setText(R.id.tv_listview_title_t1, recommendPageListViewBean.getResult().getNewslist().get(position).getTitle())

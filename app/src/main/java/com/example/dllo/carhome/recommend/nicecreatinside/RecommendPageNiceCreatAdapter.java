@@ -58,7 +58,7 @@ public class RecommendPageNiceCreatAdapter extends BaseAdapter {
        switch (getItemViewType(position)) {
            case TYPE_1:
                viewHolder = CommonVH.getViewHolder(convertView,parent, R.layout.fragment_recommend_nicecreat_type_one);
-               //TODO 布局没有写的说喵
+               //TODO 布局没有写喵,video不会用的说喵
                break;
            case TYPE_2:
                break;
