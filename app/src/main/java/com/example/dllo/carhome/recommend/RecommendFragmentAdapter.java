@@ -5,8 +5,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.util.SparseArray;
 
-import java.util.ArrayList;
-
 /**
  * Created by dllo on 16/10/25.
  */

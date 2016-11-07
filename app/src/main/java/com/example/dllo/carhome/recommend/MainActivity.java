@@ -22,7 +22,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     // MainActivity 进行界面的跳转
     private RadioButton main_btn_recommend,main_btn_forum,main_btn_choosecar,main_btn_found,main_btn_myself;
     private FragmentManager manager;
-    private FragmentTransaction transaction;
+//    private FragmentTransaction transaction;
     @Override
     protected int getLayout() {
         return R.layout.activity_main;
@@ -30,6 +30,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     protected void initViews() {
+        manager = getSupportFragmentManager();
         findID();
         setClick();
 
@@ -45,8 +46,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        manager = getSupportFragmentManager();
-        transaction = manager.beginTransaction();
+//        manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
         switch (v.getId()) {
             case R.id.main_btn_recommend:
                 transaction.replace(R.id.main_view, new RecommendFragment());

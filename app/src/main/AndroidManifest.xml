@@ -17,6 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".recommend.RecommendMoreActivity"/>
+        <activity android:name=".forum.recommendinside.ForumPageNiceCatchActivity"/>
+        <activity android:name=".forum.recommendinside.ForumPageNiceCatchDetailListViewActivity"/>
+        <activity android:name=".forum.recommendinside.ForumPageHotActivity"/>
     </application>
 
 </manifest>

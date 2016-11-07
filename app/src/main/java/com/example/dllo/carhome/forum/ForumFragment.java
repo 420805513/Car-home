@@ -6,7 +6,8 @@ import android.support.v4.view.ViewPager;
 
 import com.example.dllo.carhome.R;
 import com.example.dllo.carhome.base.BaseFragment;
-import com.example.dllo.carhome.recommend.RecommendFragmentAdapter;
+import com.example.dllo.carhome.forum.foruminside.ForumPageFragment;
+import com.example.dllo.carhome.forum.recommendinside.ForumPageRecommendFragment;
 
 import java.util.ArrayList;
 
@@ -25,6 +26,17 @@ public class ForumFragment extends BaseFragment {
 
     @Override
     protected void initView() {
+        vp = bindView(R.id.vp_forum);
+        tb = bindView(R.id.tb_forum);
+
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        fragments.add(new ForumPageRecommendFragment());
+        fragments.add(new ForumPageFragment());
+        ForumFragmentAdapter forumFragmentAdapter = new ForumFragmentAdapter(getChildFragmentManager());
+        forumFragmentAdapter.setFragment(fragments);
+        vp.setAdapter(forumFragmentAdapter);
+        tb.setupWithViewPager(vp);
+
 
     }
     @Override

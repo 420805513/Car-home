@@ -12,13 +12,11 @@ import com.example.dllo.carhome.commonviewholder.CommonVH;
  * Created by dllo on 16/11/3.
  */
 public class RecommendPageSpeakAdapter extends BaseAdapter {
-    Context context;
+
     private RecommendPageSpeakBean recommendPageSpeakBean;
     private CommonVH viewHolder;
 
-    public RecommendPageSpeakAdapter(Context context) {
-        this.context = context;
-    }
+
 
     public void setRecommendPageSpeakBean(RecommendPageSpeakBean recommendPageSpeakBean) {
         this.recommendPageSpeakBean = recommendPageSpeakBean;

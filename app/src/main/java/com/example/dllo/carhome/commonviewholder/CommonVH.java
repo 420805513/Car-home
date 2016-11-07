@@ -85,7 +85,7 @@ public class CommonVH extends RecyclerView.ViewHolder{
     }
     public CommonVH setImage(int id,String url) {
         ImageView imageView = getView(id);
-        //TODO 网络请求图片
+        // 网络请求图片
         VolleySingleton.getInstance().getImage(url,imageView);
         return this;
     }

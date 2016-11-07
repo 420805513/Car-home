@@ -5,7 +5,7 @@
     android:background="@color/colorBackround">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:background="@color/colorItem">
         <ImageView
             android:layout_alignParentLeft="true"
@@ -16,7 +16,8 @@
             android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/search"/>
+            android:src="@mipmap/search"
+            android:layout_centerVertical="true"/>
     </RelativeLayout>
     <LinearLayout
         android:layout_marginTop="1dp"

@@ -17,19 +17,18 @@ import java.util.List;
  * ListView的Adapter
  */
 public class RecommendPageListViewAdapter extends BaseAdapter {
-    Context context;
+
     private RecommendPageListViewBean recommendPageListViewBean;
-    final int TYPE_0 = 0;
-    final int TYPE_1 = 1;
-    final int TYPE_2 = 2;
-    final int TYPE_3 = 3;
-    final int TYPE_5 = 5;
-    final int TYPE_6 = 6;
+    private static final int TYPE_0 = 0;
+    private static final int TYPE_1 = 1;
+    private static final int TYPE_2 = 2;
+    private static final int TYPE_3 = 3;
+    private static final int TYPE_5 = 5;
+    private static final int TYPE_6 = 6;
     private CommonVH viewHolder;
 
-    public RecommendPageListViewAdapter(Context context) {
-        this.context = context;
-    }
+
+
 
     public void setRecommendPageListViewBean(RecommendPageListViewBean recommendPageListViewBean) {
         this.recommendPageListViewBean = recommendPageListViewBean;

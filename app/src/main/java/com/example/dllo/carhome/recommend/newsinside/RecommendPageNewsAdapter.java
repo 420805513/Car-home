@@ -12,13 +12,10 @@ import com.example.dllo.carhome.commonviewholder.CommonVH;
  * Created by dllo on 16/11/3.
  */
 public class RecommendPageNewsAdapter extends BaseAdapter {
-    Context context;
+
     private RecommendPageNewsBean recommendPageNewsBean;
     private CommonVH viewHolder;
 
-    public RecommendPageNewsAdapter(Context context) {
-        this.context = context;
-    }
 
     public void setRecommendPageNewsBean(RecommendPageNewsBean recommendPageNewsBean) {
         this.recommendPageNewsBean = recommendPageNewsBean;
