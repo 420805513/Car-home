@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class ForumFragment extends BaseFragment {
     private ViewPager vp;
     private TabLayout tb;
-    private ArrayList<Fragment> arrayList;
+
 
     @Override
     protected int getLayout() {

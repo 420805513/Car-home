@@ -3,12 +3,25 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackround">
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tb_choose_car"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorItem">
-    </android.support.design.widget.TabLayout>
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tb_choose_car"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </android.support.design.widget.TabLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/search"
+            android:clickable="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_choose_car"
         android:layout_width="match_parent"

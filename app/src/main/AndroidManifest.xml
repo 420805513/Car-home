@@ -8,8 +8,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        android:name=".myapp.MyAPP">
-        <activity android:name=".recommend.MainActivity">
+        android:name=".myapp.MyAPP"
+        >
+        <activity android:name=".recommend.MainActivity"
+                  android:process="packagename.web">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

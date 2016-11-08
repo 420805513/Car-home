@@ -36,7 +36,7 @@ public class ForumPageNiceCatchDetailListViewActivity extends BaseActivity imple
     @Override
     protected void initData() {
         Intent intent = getIntent();
-        String url = intent.getStringExtra("url");
+        String url =  intent.getStringExtra("url");
         String title = intent.getStringExtra("title");
         tv.setText(title);
         // 与ForumPageForumBean 公用一个bean以及adapter

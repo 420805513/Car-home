@@ -10,6 +10,7 @@ import com.example.dllo.carhome.R;
 import com.example.dllo.carhome.myapp.MyAPP;
 
 /**
+ * volleySingleton 单例
  * Created by dllo on 16/10/31.
  */
 public class VolleySingleton {

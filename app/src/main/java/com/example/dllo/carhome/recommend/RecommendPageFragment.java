@@ -34,7 +34,6 @@ public class RecommendPageFragment extends BaseFragment {
       private ListView lv;
       private RollPagerView mRollViewPager;
 
-
     /**
      * pos位置
      */
@@ -45,8 +44,6 @@ public class RecommendPageFragment extends BaseFragment {
         rpf.setArguments(bundle);
         return rpf;
     }
-
-
 
     @Override
     protected int getLayout() {
