@@ -79,6 +79,7 @@ public class RecommendPageListViewAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         switch (getItemViewType(position)) {
             case TYPE_0:
+                viewHolder = CommonVH.getViewHolder(convertView, parent, R.layout.fragment_recommend_listview_type_zero);
                 viewHolder.setText(R.id.tv_listview_title_t0,recommendPageListViewBean.getResult().getNewslist().get(position).getTitle())
                         .setText(R.id.tv_listview_date_t0,recommendPageListViewBean.getResult().getNewslist().get(position).getTime())
                         .setImage(R.id.iv_listview_picture_t0,recommendPageListViewBean.getResult().getNewslist().get(position).getSmallpic());

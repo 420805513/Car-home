@@ -33,5 +33,5 @@ public final class UrlList {
     // 热贴界面
     public static final String URL_HOTPAGE_LIST = "http://club.app.autohome.com.cn/club_v6.1.0/club/shotfoumlist-pm1-p1-s50.json";
     // 选车的listview
-    public static final String NEWCAR_BRAND_URL = "http://223.99.255.20/cars.app.autohome.com.cn/cars_v5.7.0/cars/brands-pm2-ts635966571635589297.json";
+    public static final String URL_CHOOSE_NEWCAR= "http://223.99.255.20/cars.app.autohome.com.cn/cars_v5.7.0/cars/brands-pm2-ts635966571635589297.json";
 }

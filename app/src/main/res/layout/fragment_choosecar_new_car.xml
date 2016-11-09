@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <se.emilsjolander.stickylistheaders.StickyListHeadersListView
+        android:id="@+id/lv_choose_car_new_car_main"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="12">
+    </se.emilsjolander.stickylistheaders.StickyListHeadersListView>
     <ListView
-        android:id="@+id/lv_choose_car_new_car"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:id="@+id/lv_choose_car_new_car_title"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:layout_weight="1">
     </ListView>
+
 
 </LinearLayout>

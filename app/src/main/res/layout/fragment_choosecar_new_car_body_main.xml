@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.example.dllo.carhome.choosecar.newcar.MyListview
+        android:id="@+id/lv_choose_car_new_car_main_body"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.example.dllo.carhome.choosecar.newcar.MyListview>
+</LinearLayout>
