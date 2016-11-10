@@ -1,16 +1,26 @@
 package com.example.dllo.carhome.commonviewholder;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.toolbox.Volley;
+import com.example.dllo.carhome.gsonandvolley.GlideImageLoader;
+import com.example.dllo.carhome.gsonandvolley.MemoryCache;
 import com.example.dllo.carhome.gsonandvolley.VolleySingleton;
 import com.squareup.picasso.Picasso;
+import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
+import com.youth.banner.Transformer;
+
+import java.util.List;
 
 /**
  * Created by dllo on 16/10/31.
@@ -21,7 +31,8 @@ public class CommonVH extends RecyclerView.ViewHolder{
     // 但是key 固定是 int 类型
     // 用它来存放所有的View, key 就是View的id
     private SparseArray<View> views;
-    private View                                                                                                itemView; // 行布局
+    public View itemView; // 行布局
+
 
     public CommonVH(View itemView) {
         super(itemView);
@@ -97,6 +108,19 @@ public class CommonVH extends RecyclerView.ViewHolder{
     // 设置点击事件
     public CommonVH setViewClick(int id, View.OnClickListener listener) {
         getView(id).setOnClickListener(listener);
+        return this;
+    }
+    // 设置Banner 轮播图
+    public CommonVH setBanner(int id, int bannerStyle, List<String> urls,int type,int delayTime){
+        Banner banner = getView(id);
+        banner.setBannerStyle(bannerStyle);
+        banner.setImageLoader(new GlideImageLoader());
+        banner.setImages(urls);
+        banner.setBannerAnimation(Transformer.DepthPage);
+        banner.isAutoPlay(true);
+        banner.setIndicatorGravity(type);
+        banner.setDelayTime(delayTime);
+        banner.start();
         return this;
     }
 

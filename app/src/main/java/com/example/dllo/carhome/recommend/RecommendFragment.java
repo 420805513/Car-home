@@ -4,11 +4,15 @@ import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.example.dllo.carhome.R;
 import com.example.dllo.carhome.base.BaseFragment;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 
@@ -19,6 +23,7 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
     private ViewPager vp;
     private TabLayout tb;
     private ImageView iv;
+    String [] titles = {"推荐","优创+","说客","视频","快报","行情","新闻","评测","导购","用车","技术","文化","改装"};
 
     @Override
     protected int getLayout() {
@@ -32,10 +37,11 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
         iv = bindView(R.id.iv_more);
         iv.setOnClickListener(this);
 
-        RecommendFragmentAdapter adapter = new RecommendFragmentAdapter(getChildFragmentManager());
+        RecommendFragmentAdapter adapter = new RecommendFragmentAdapter(getChildFragmentManager(), titles);
         vp.setAdapter(adapter);
         tb.setupWithViewPager(vp);
         tb.setTabMode(TabLayout.MODE_SCROLLABLE);
+
     }
 
     @Override
@@ -48,8 +54,26 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
         switch (v.getId()) {
             case R.id.iv_more:
                 Intent intent = new Intent(getActivity(),RecommendMoreActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,100);
                 break;
         }
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == 101){
+            int pos = data.getIntExtra("position",-1);
+            if(pos != -1){
+                vp.setCurrentItem(pos);
+            }
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+    }
+
 }
