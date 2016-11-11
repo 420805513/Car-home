@@ -2,6 +2,8 @@ package com.example.dllo.carhome.commonviewholder;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -15,6 +17,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.dllo.carhome.gsonandvolley.GlideImageLoader;
 import com.example.dllo.carhome.gsonandvolley.MemoryCache;
 import com.example.dllo.carhome.gsonandvolley.VolleySingleton;
+import com.example.dllo.carhome.myapp.MyAPP;
 import com.squareup.picasso.Picasso;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -32,10 +35,12 @@ public class CommonVH extends RecyclerView.ViewHolder{
     // 用它来存放所有的View, key 就是View的id
     private SparseArray<View> views;
     public View itemView; // 行布局
+    private Context mContext;
 
 
-    public CommonVH(View itemView) {
+    public CommonVH(View itemView ,Context context) {
         super(itemView);
+        mContext = context;
         this.itemView = itemView;
         views = new SparseArray<>();
     }
@@ -60,9 +65,9 @@ public class CommonVH extends RecyclerView.ViewHolder{
     public static CommonVH getViewHolder(View itemView,ViewGroup parent,int itemId) {
         CommonVH commonVH;
         if (itemView == null) {
-            Context context = parent.getContext();
+            Context context =  parent.getContext();
             itemView = LayoutInflater.from(context).inflate(itemId,parent,false);
-            commonVH = new CommonVH(itemView);
+            commonVH = new CommonVH(itemView,context);
             itemView.setTag(commonVH);
         } else {
             commonVH = (CommonVH) itemView.getTag();
@@ -124,4 +129,13 @@ public class CommonVH extends RecyclerView.ViewHolder{
         return this;
     }
 
+    public CommonVH setRecyclerView(int spanCount,int id,RecyclerView.Adapter adapter,int orientation) {
+        RecyclerView recyclerView = getView(id);
+        recyclerView.setAdapter(adapter);
+        GridLayoutManager manager = new GridLayoutManager(mContext,spanCount);
+        manager.setOrientation(orientation);
+        recyclerView.setLayoutManager(manager);
+
+        return this;
+    }
 }

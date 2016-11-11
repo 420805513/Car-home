@@ -68,7 +68,7 @@ public class RecommendPageFragment extends BaseFragment {
                         RecommendPageListViewAdapter adapter = new RecommendPageListViewAdapter();
                         adapter.setRecommendPageListViewBean(response);
 
-                        View headLeader = getActivity().getLayoutInflater().inflate(R.layout.fragment_recommend_page_circleview, null);
+                        View headLeader = getActivity().getLayoutInflater().inflate(R.layout.fragment_recommend_page_circleview, null,false);
                         // 轮播图的内容
                         mRollViewPager = (RollPagerView) headLeader.findViewById(R.id.rpv_recommend);
                         LoopAdapter loopAdapter = new LoopAdapter(mRollViewPager);

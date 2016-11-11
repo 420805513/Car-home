@@ -33,7 +33,9 @@ public class RecommendMoreAdapter extends RecyclerView.Adapter<CommonVH>{
     }
     @Override
     public CommonVH onCreateViewHolder(ViewGroup parent, int viewType) {
-        viewHolder = CommonVH.getViewHolder(parent, R.layout.fragment_recommend_rv_item);
+        viewHolder = CommonVH.getViewHolder(parent, R.
+
+                layout.fragment_recommend_rv_item);
         return viewHolder;
     }
 

@@ -40,7 +40,7 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
         RecommendFragmentAdapter adapter = new RecommendFragmentAdapter(getChildFragmentManager(), titles);
         vp.setAdapter(adapter);
         tb.setupWithViewPager(vp);
-        tb.setTabMode(TabLayout.MODE_SCROLLABLE);
+
 
     }
 

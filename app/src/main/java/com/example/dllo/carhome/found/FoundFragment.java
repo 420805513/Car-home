@@ -1,7 +1,9 @@
 package com.example.dllo.carhome.found;
 
 
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -9,6 +11,7 @@ import com.example.dllo.carhome.R;
 import com.example.dllo.carhome.base.BaseFragment;
 import com.example.dllo.carhome.gsonandvolley.GsonRequest;
 import com.example.dllo.carhome.gsonandvolley.UrlList;
+import com.example.dllo.carhome.gsonandvolley.VolleySingleton;
 
 /**
  * Created by dllo on 16/10/24.
@@ -31,41 +34,41 @@ public class FoundFragment extends BaseFragment {
         GsonRequest<FoundFragmentBean> gsonRequest = new GsonRequest<FoundFragmentBean>(FoundFragmentBean.class, UrlList.URL_FIND, new Response.Listener<FoundFragmentBean>() {
             @Override
             public void onResponse(FoundFragmentBean response) {
-
+                Log.d("FoundFragment123", "请求下来了");
                 FoundFragmentAdapter adapter = new FoundFragmentAdapter();
                 adapter.setFoundFragmentBean(addType(response));
                 rv.setAdapter(adapter);
+
+                GridLayoutManager gridM=new GridLayoutManager(getContext(),1);
+                rv.setLayoutManager(gridM);
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Log.d("FoundFragment456", "没有请求下来数据");
             }
 
     });
-
+        VolleySingleton.getInstance().addRequest(gsonRequest);
     }
     public FoundFragmentBean addType(FoundFragmentBean foundFragmentBean) {
         int type = -1;
         for (int i = 0;i < foundFragmentBean.getResult().getCardlist().size();i++) {
             switch (i) {
                 case 6:
-                type = 3;
-                break;
+                    type = 3;
+                    break;
                 case 7:
                     type = 6;
                     break;
                 case 8:
-                    type = 3;
+                    type = 7;
                     break;
                 case 9:
                     type = 7;
                     break;
                 case 10:
-                    type = 10;
-                    break;
-                case 11:
                     type = 8;
                     break;
                 default:
