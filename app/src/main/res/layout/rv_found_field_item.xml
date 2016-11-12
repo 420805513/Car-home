@@ -6,7 +6,9 @@
     <ImageView
         android:id="@+id/iv_found_fragment_field"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="110dp"
+        android:background="@color/colorBackround"
+        android:padding="1dp"
         android:src="@mipmap/huaji"/>
 
 </LinearLayout>

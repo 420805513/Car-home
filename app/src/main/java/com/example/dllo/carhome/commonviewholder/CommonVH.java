@@ -86,10 +86,15 @@ public class CommonVH extends RecyclerView.ViewHolder{
 
     /********* ViewHolder 设置数据的方法**********/
     // 设置文字
-    public CommonVH setText(int id, String
-            text) {
+    public CommonVH setText(int id, String text) {
         TextView textView = getView(id);
         textView.setText(text);
+        return this;
+    }
+    public CommonVH setText(int id, String text, int flag) {
+        TextView textView = getView(id);
+        textView.setText(text);
+        textView.getPaint().setFlags(flag);
         return this;
     }
 

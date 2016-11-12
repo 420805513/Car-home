@@ -56,20 +56,32 @@ public class FoundFragment extends BaseFragment {
         int type = -1;
         for (int i = 0;i < foundFragmentBean.getResult().getCardlist().size();i++) {
             switch (i) {
-                case 6:
+                case 0:
+                    type = 0;
+                    break;
+                case 1:
+                    type = 1;
+                    break;
+                case 2:
+                    type = 2;
+                    break;
+                case 3:
                     type = 3;
+                    break;
+                case 4 :
+                    type = 4;
+                    break;
+                case 5:
+                    type = 5;
+                    break;
+                case 6:
+                    type = 6;
                     break;
                 case 7:
                     type = 6;
                     break;
                 case 8:
                     type = 7;
-                    break;
-                case 9:
-                    type = 7;
-                    break;
-                case 10:
-                    type = 8;
                     break;
                 default:
                     type = i;
