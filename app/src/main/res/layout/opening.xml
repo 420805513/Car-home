@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
      android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#4ba9dc"
+    android:id="@+id/ll_opening"
+    >
 <ImageView
     android:id="@+id/iv_opening"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
-    <ImageView
-        android:id="@+id/iv_edition"
-        android:layout_alignBottom="@+id/iv_opening"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-</RelativeLayout>
+    android:layout_height="400dp"
+    android:src="@drawable/openinggif"/>
+    <TextView
+        android:id="@+id/tv_opening_main"
+        android:text="汽车之家"
+        android:textSize="40dp"
+        android:textColor="@color/colorItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:shadowColor="@color/colorBackround"
+        android:shadowDy="5"
+        android:shadowRadius="10"/>
+    <TextView
+        android:id="@+id/tv_opening_part"
+        android:text="您与您的爱车向往的地方"
+        android:textSize ="25dp"
+        android:textColor="@color/colorItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:shadowColor="@color/colorBackround"
+        android:shadowDy="5"
+        android:shadowRadius="10"/>
+
+</LinearLayout>

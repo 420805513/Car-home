@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dllo.carhome">
+    <!--联网-->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 获取2g.3g.等网络状态信息-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!--获取wifi网络状态的信息-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!--保持CPU的运转,用于文件的上传和下载-->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <!--获取SD卡写的权限,用于文件上传和下载-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!--允许读取手机状态 用于创建BmobInstallation,喵-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +21,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:name=".myapp.MyAPP"
         >
-        <activity android:name=".recommend.MainActivity"
+        <activity android:name=".opening.OpeningActivity"
                   android:process="packagename.web">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +33,9 @@
         <activity android:name=".forum.recommendinside.ForumPageNiceCatchActivity"/>
         <activity android:name=".forum.recommendinside.ForumPageNiceCatchDetailListViewActivity"/>
         <activity android:name=".forum.recommendinside.ForumPageHotActivity"/>
+        <activity android:name=".recommend.MainActivity"/>
+        <activity android:name=".myself.LogAAccount"/>
+        <activity android:name=".myself.UserRegister"/>
     </application>
 
 </manifest>

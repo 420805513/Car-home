@@ -24,6 +24,7 @@ import com.example.dllo.carhome.recommend.recommendinside.RecommendPageListViewA
 import com.example.dllo.carhome.recommend.recommendinside.RecommendPageListViewBean;
 import com.example.dllo.carhome.recommend.speakinside.RecommendPageSpeakAdapter;
 import com.example.dllo.carhome.recommend.speakinside.RecommendPageSpeakBean;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.jude.rollviewpager.RollPagerView;
 
 /**
@@ -31,7 +32,7 @@ import com.jude.rollviewpager.RollPagerView;
  */
 public class RecommendPageFragment extends BaseFragment {
       private static final String KEY = "pos";
-      private ListView lv;
+      private PullToRefreshListView lv;
       private RollPagerView mRollViewPager;
 
     /**
@@ -74,7 +75,9 @@ public class RecommendPageFragment extends BaseFragment {
                         LoopAdapter loopAdapter = new LoopAdapter(mRollViewPager);
                         loopAdapter.setRecommendPageListViewBean(response);
 //                        mRollViewPager.setHintView(new ColorPointHintView(getContext(), Color.YELLOW, Color.WHITE));
-                        lv.addHeaderView(headLeader);
+//                        lv.addHeaderView(headLeader);
+                        ListView listView = lv.getRefreshableView();
+                        listView.addHeaderView(headLeader);
                         mRollViewPager.setAdapter(loopAdapter);
                         // 添加头布局
                         lv.setAdapter(adapter);

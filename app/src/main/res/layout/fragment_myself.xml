@@ -8,6 +8,7 @@
         android:layout_weight="1"
         android:background="@color/colorItem">
     <ImageView
+        android:id="@+id/iv_myself_brightness"
     android:layout_alignParentRight="true"
     android:layout_width="30dp"
     android:layout_height="30dp"
@@ -24,13 +25,16 @@
             android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clickable="true"
             android:src="@mipmap/ahlib_userpic_default"/>
         <TextView
+            android:id="@+id/tv_username"
             android:layout_marginTop="10dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/iv_userpic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clickable="true"
             android:text="账号登录"/>
     </RelativeLayout>
     <!-- 第三方 -->

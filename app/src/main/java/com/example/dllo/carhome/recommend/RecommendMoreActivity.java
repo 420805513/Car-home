@@ -111,16 +111,16 @@ public class RecommendMoreActivity extends BaseActivity implements View.OnClickL
             }
         };
     }
-    @Subscribe
-    public void finishPage(PositionEvent positionEvent) {
-        if (positionEvent.getI() >= 0) {
-            Intent intent = new Intent();
-            intent.putExtra("position",positionEvent.getI());
-            setResult(101,intent);
-            finish();
-            Log.d("RecommendMoreActivity", "positionEvent.getI():" + positionEvent.getI());
-        }
-    }
+//    @Subscribe
+//    public void finishPage(PositionEvent positionEvent) {
+//        if (positionEvent.getI() >= 0) {
+//            Intent intent = new Intent();
+//            intent.putExtra("position",positionEvent.getI());
+//            setResult(101,intent);
+//            finish();
+//            Log.d("RecommendMoreActivity", "positionEvent.getI():" + positionEvent.getI());
+//        }
+//    }
     @Override
     protected void onDestroy() {
         super.onDestroy();
