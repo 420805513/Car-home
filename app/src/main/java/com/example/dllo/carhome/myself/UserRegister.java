@@ -1,5 +1,7 @@
 package com.example.dllo.carhome.myself;
 
+import android.content.Intent;
+import android.util.EventLog;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +11,8 @@ import android.widget.Toast;
 
 import com.example.dllo.carhome.R;
 import com.example.dllo.carhome.base.BaseActivity;
+
+import org.greenrobot.eventbus.EventBus;
 
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
@@ -51,8 +55,8 @@ public class UserRegister extends BaseActivity implements View.OnClickListener {
                 finish();
                 break;
             case R.id.btn_user_to_register:
-                String str = username.getText().toString();
-                String str1 = password.getText().toString();
+                final String str = username.getText().toString();
+                final String str1 = password.getText().toString();
                 String str2 = passwordCheck.getText().toString();
                 if (str == null) {
                     Toast.makeText(this, "用户名为空", Toast.LENGTH_SHORT).show();
@@ -67,6 +71,8 @@ public class UserRegister extends BaseActivity implements View.OnClickListener {
                         public void done(BmobUser bmobUser, BmobException e) {
                             if (e == null){
                                 Toast.makeText(UserRegister.this, "注册成功,可以进行登录了", Toast.LENGTH_SHORT).show();
+                                finish();
+
                             } else {
                                 Log.d("UserRegister", "e:" + e);
                             }

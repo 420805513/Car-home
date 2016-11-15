@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackround">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorItem">
+        <EditText
+            android:id="@+id/et_recommend_search"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="7"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:background="@color/colorBackround"
+            android:textSize="13dp"
+            android:hint="输入关键词"/>
+        <TextView
+            android:id="@+id/tv_recommend_search_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="取消"
+            android:textSize="16sp"
+            android:layout_gravity="center_vertical"
+            android:clickable="true"/>
+    </LinearLayout>
+    <!--搜索列表-->
+    <ListView
+        android:id="@+id/lv_recommend_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+
+    <!--搜索详情-->
+     <WebView
+         android:id="@+id/wv_recommend_detail"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:visibility="gone"/>
+
+    <!--历史记录列表-->
+    <ListView
+        android:id="@+id/lv_recommend_history"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+</LinearLayout>

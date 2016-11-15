@@ -34,7 +34,7 @@ public class OpeningActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initViews() {
-        Bmob.initialize(this,"ce2645b52e5e0d90333f2290d2a216cf");
+
         frameIV = bindView(R.id.iv_opening);
         textViewMain = bindView(R.id.tv_opening_main);
         textViewPart = bindView(R.id.tv_opening_part);

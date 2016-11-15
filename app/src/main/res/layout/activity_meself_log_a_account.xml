@@ -30,8 +30,10 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:hint="请输入密码"
+        android:inputType="textPassword"
         android:layout_gravity="center"/>
     <Button
+        android:id="@+id/btn_myself_login"
         android:layout_marginTop="20dp"
         android:layout_width="300dp"
         android:layout_height="wrap_content"

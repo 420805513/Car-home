@@ -36,6 +36,8 @@
         <activity android:name=".recommend.MainActivity"/>
         <activity android:name=".myself.LogAAccount"/>
         <activity android:name=".myself.UserRegister"/>
+        <activity android:name=".myself.UserInfo"/>
+        <activity android:name=".recommend.recommendsearchpart.RecommendSearchActivity"/>
     </application>
 
 </manifest>
