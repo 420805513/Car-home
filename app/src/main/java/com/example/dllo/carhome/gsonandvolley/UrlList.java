@@ -4,6 +4,8 @@ package com.example.dllo.carhome.gsonandvolley;
  * Created by dllo on 16/10/31.
  */
 public final class UrlList {
+    // 视频
+    public static final String URL_VIDEO = "http://app.api.autohome.com.cn/autov4.8.8/news/videolist-pm1-vt0-s30-lastid0.json";
     // 优创
     public static  final String URL_NICECREAT = "http://news.app.autohome.com.cn/news_v6.1.0/newspf/NPNewsList.ashx?a=2&pm=2&v=6.1.0&au=&type=3&lastid=&lastuid=0&size=30";
     // 推荐

@@ -5,9 +5,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.dllo.carhome.R;
 import com.example.dllo.carhome.base.BaseActivity;
@@ -17,11 +19,14 @@ import com.example.dllo.carhome.found.FoundFragment;
 import com.example.dllo.carhome.myself.MyselfFragment;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
     // MainActivity 进行界面的跳转
     private RadioButton main_btn_recommend,main_btn_forum,main_btn_choosecar,main_btn_found,main_btn_myself;
     private FragmentManager manager;
+    private boolean isExit = false;
 //    private FragmentTransaction transaction;
     @Override
     protected int getLayout() {
@@ -85,5 +90,30 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         transaction.replace(R.id.main_view, new RecommendFragment());
         transaction.commit();
 
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode== KeyEvent.KEYCODE_BACK){
+            exitByDoubleClick();
+        }
+        return false;
+    }
+
+    private void exitByDoubleClick() {
+        Timer tExit =  null;
+        if(!isExit){
+            isExit=true;
+            Toast.makeText(MainActivity.this,"再按一次退出程序", Toast.LENGTH_SHORT).show();
+            tExit =new Timer();
+            tExit.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    isExit = false;
+                }
+            },2000);
+        }else{
+            finish();
+            System.exit(0);
+        }
     }
 }

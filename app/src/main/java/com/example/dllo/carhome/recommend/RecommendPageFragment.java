@@ -17,6 +17,8 @@ import com.example.dllo.carhome.gsonandvolley.GsonRequest;
 import com.example.dllo.carhome.gsonandvolley.VolleySingleton;
 import com.example.dllo.carhome.recommend.newsinside.RecommendPageNewsAdapter;
 import com.example.dllo.carhome.recommend.newsinside.RecommendPageNewsBean;
+import com.example.dllo.carhome.recommend.nicecreatinside.RecommendPageNiceCreatAdapter;
+import com.example.dllo.carhome.recommend.nicecreatinside.RecommendPageNiceCreatBean;
 import com.example.dllo.carhome.recommend.quicknewsinside.RecommendPageQuickNewsAdapter;
 import com.example.dllo.carhome.recommend.quicknewsinside.RecommendPageQuickNewsBean;
 import com.example.dllo.carhome.recommend.recommendinside.LoopAdapter;
@@ -24,6 +26,8 @@ import com.example.dllo.carhome.recommend.recommendinside.RecommendPageListViewA
 import com.example.dllo.carhome.recommend.recommendinside.RecommendPageListViewBean;
 import com.example.dllo.carhome.recommend.speakinside.RecommendPageSpeakAdapter;
 import com.example.dllo.carhome.recommend.speakinside.RecommendPageSpeakBean;
+import com.example.dllo.carhome.recommend.videoinside.RecommendPageVideoAdapter;
+import com.example.dllo.carhome.recommend.videoinside.RecommendPageVideoBean;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.jude.rollviewpager.RollPagerView;
 
@@ -94,22 +98,22 @@ public class RecommendPageFragment extends BaseFragment {
 
                 break;
             case 1:
-//                GsonRequest<RecommendPageNiceCreatBean> gsonRequest1 = new GsonRequest<RecommendPageNiceCreatBean>(RecommendPageNiceCreatBean.class, UrlList.URL_NICECREAT, new Response.Listener<RecommendPageNiceCreatBean>() {
-//                    @Override
-//                    public void onResponse(RecommendPageNiceCreatBean response) {
-//                        //请求成功的方法
-//
-//
-//                    }
-//                }, new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        // 请求失败的方法
-//
-//                    }
-//
-//        });
+                GsonRequest<RecommendPageNiceCreatBean> gsonRequest1 = new GsonRequest<RecommendPageNiceCreatBean>(RecommendPageNiceCreatBean.class, UrlList.URL_NICECREAT, new Response.Listener<RecommendPageNiceCreatBean>() {
+                    @Override
+                    public void onResponse(RecommendPageNiceCreatBean response) {
+                        //请求成功的方法
+                        RecommendPageNiceCreatAdapter adapter = new RecommendPageNiceCreatAdapter();
+                        adapter.setRecommendPageNiceCreatBean(response);
+                        lv.setAdapter(adapter);
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // 请求失败的方法
+                    }
 
+        });
+                VolleySingleton.getInstance().addRequest(gsonRequest1);
                 break;
             case 2:
                 // 说客
@@ -133,6 +137,21 @@ public class RecommendPageFragment extends BaseFragment {
                 break;
             case 3:
                 // 视频
+                GsonRequest<RecommendPageVideoBean> gsonRequest3 = new GsonRequest<RecommendPageVideoBean>(RecommendPageVideoBean.class, UrlList.URL_VIDEO, new Response.Listener<RecommendPageVideoBean>() {
+                    @Override
+                    public void onResponse(RecommendPageVideoBean response) {
+                        RecommendPageVideoAdapter adapter = new RecommendPageVideoAdapter();
+                        adapter.setRecommendPageVideoBean(response);
+                        lv.setAdapter(adapter);
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                }
+        });
+                VolleySingleton.getInstance().addRequest(gsonRequest3);
+
                 break;
             case 4:
                 // 快报
@@ -147,6 +166,7 @@ public class RecommendPageFragment extends BaseFragment {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+
 
                     }
                 });
