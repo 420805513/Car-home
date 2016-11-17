@@ -24,12 +24,12 @@ public class FoundLimteTimeAdapter extends RecyclerView.Adapter<CommonVH>{
 
     @Override
     public void onBindViewHolder(CommonVH holder, int position) {
-        holder.setImage(R.id.iv_found_fragment_limte_time,foundFragmentBean.getResult().getCardlist().get(3).getData().get(position).getImageurl());
+        holder.setImage(R.id.iv_found_fragment_limte_time,foundFragmentBean.getResult().getCardlist().get(2).getData().get(position).getImageurl());
 
     }
 
     @Override
     public int getItemCount() {
-        return foundFragmentBean.getResult().getCardlist().get(3).getData().size();
+        return foundFragmentBean.getResult().getCardlist().get(2).getData().size();
     }
 }

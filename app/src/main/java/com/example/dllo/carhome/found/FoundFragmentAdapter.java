@@ -21,13 +21,13 @@ public class FoundFragmentAdapter extends RecyclerView.Adapter<CommonVH> {
     private FoundFragmentBean foundFragmentBean;
     private final static int TYPE_FOCUS = 0; // 轮播图
     private final static int TYPE_ENTRANCE = 1; // 业务接口
-    private final static int TYPE_TIME = 2; // 图文时限专区
+//    private final static int TYPE_TIME = 2; // 图文时限专区
 //    private final static int TYPE_SMALL_LINE = 3; // 单帧小号横栏
-    private final static int TYPE_LIMTE_TIME = 3; // 限时抢购
-    private final static int TYPE_FIELD = 4; // 田字小号专区
-    private final static int TYPE_ACT = 5; // 活动专区
-    private final static int TYPE_MODE = 6; // 模块列表
-    private final static int TYPE_PRODUCE = 7; // 商品列表
+    private final static int TYPE_LIMTE_TIME = 2; // 限时抢购
+    private final static int TYPE_FIELD = 3; // 田字小号专区
+    private final static int TYPE_ACT = 4; // 活动专区
+    private final static int TYPE_MODE = 5; // 模块列表
+    private final static int TYPE_PRODUCE = 6; // 商品列表
 
     public void setFoundFragmentBean(FoundFragmentBean foundFragmentBean) {
         this.foundFragmentBean = foundFragmentBean;
@@ -45,10 +45,10 @@ public class FoundFragmentAdapter extends RecyclerView.Adapter<CommonVH> {
                 CommonVH entranceVH =  CommonVH.getViewHolder(parent,R.layout.item_found_entrance);
                 Log.d("aaa", "1");
                 return entranceVH;
-            case TYPE_TIME : // 图文限时专区
-                CommonVH timeVH = CommonVH.getViewHolder(parent,R.layout.item_found_time);
-                Log.d("aaa", "2");
-                return timeVH;
+//            case TYPE_TIME : // 图文限时专区
+//                CommonVH timeVH = CommonVH.getViewHolder(parent,R.layout.item_found_time);
+//                Log.d("aaa", "2");
+//                return timeVH;
 //            case TYPE_SMALL_LINE: // 单帧小号横栏
 //                CommonVH smallLineVH = CommonVH.getViewHolder(parent,R.layout.item_found_small_line);
 //                Log.d("aaa", "3");
@@ -97,11 +97,11 @@ public class FoundFragmentAdapter extends RecyclerView.Adapter<CommonVH> {
                 adapter.setFoundFragmentBean(foundFragmentBean);
                 holder.setRecyclerView(1,R.id.rv_found_entrance,adapter, LinearLayoutManager.HORIZONTAL);
                 break;
-            case TYPE_TIME: // 图文限时
-                FoundTimeAdapter adapter1 = new FoundTimeAdapter();
-                adapter1.setFoundFragmentBean(foundFragmentBean);
-                holder.setRecyclerView(1,R.id.rv_found_time,adapter1,LinearLayoutManager.HORIZONTAL);
-                break;
+//            case TYPE_TIME: // 图文限时
+//                FoundTimeAdapter adapter1 = new FoundTimeAdapter();
+//                adapter1.setFoundFragmentBean(foundFragmentBean);
+//                holder.setRecyclerView(1,R.id.rv_found_time,adapter1,LinearLayoutManager.HORIZONTAL);
+//                break;
 //            case TYPE_SMALL_LINE: // 小号单帧(就是一张图片
 //                holder.setImage(R.id.iv_found_fragment_small_line,foundFragmentBean.getResult().getCardlist().get(position).getData().get(0).getImageurl());
 //                break;

@@ -20,7 +20,6 @@ import cn.bmob.v3.Bmob;
  * Created by dllo on 16/10/24.
  */
 public class OpeningActivity extends BaseActivity implements View.OnClickListener {
-    private ImageView frameIV;
     private TextView textViewMain;
     private TextView textViewPart;
     private Animation animation;
@@ -35,7 +34,6 @@ public class OpeningActivity extends BaseActivity implements View.OnClickListene
     @Override
     protected void initViews() {
 
-        frameIV = bindView(R.id.iv_opening);
         textViewMain = bindView(R.id.tv_opening_main);
         textViewPart = bindView(R.id.tv_opening_part);
         ll = bindView(R.id.ll_opening);
@@ -63,7 +61,7 @@ public class OpeningActivity extends BaseActivity implements View.OnClickListene
     }
     @Override
     public void onClick(View v) {
-       timer.onFinish();
+        timer.onFinish();
         timer.cancel();
     }
 

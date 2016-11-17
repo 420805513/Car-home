@@ -317,6 +317,8 @@ public class RecommendPageFragment extends BaseFragment {
                 VolleySingleton.getInstance().addRequest(gsonRequest12);
 
                 break;
+            default:
+
 
         }
 
